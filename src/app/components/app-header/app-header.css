@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75 rem;
+    margin-bottom: 1.5rem;
+}
+
+button{
+    width: fit-content;
+}

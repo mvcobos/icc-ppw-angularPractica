@@ -1,0 +1,16 @@
+<footer class="footer">
+  <div class="footer-content">
+    <!--1:uppercase -->
+    <p>Autor: {{ author() | uppercase }}</p>
+    <!--2:lowercase -->
+    <p>Contacto: {{ email() | lowercase }}</p>
+    <!--3:currency -->
+    <p>Inversión: {{ amount() | currency:'USD' }}</p>
+    <!--4:date -->
+    <p>Última actualización: {{ lastUpdate() | date:'short' }}</p>
+    <!--5:slice -->
+    <p>Curso: {{ ('Angular Fundamentos' | slice:0:7) }}</p>
+
+    <p>&copy; {{ year() }} Todos los derechos reservados.</p>
+  </div>
+</footer>
