@@ -1,21 +1,26 @@
-<section class="hero">
-  <h2>{{ title() | uppercase }}</h2>
-  <p>{{ subtitle() }}</p>
-
-  <button type="button" (click)="toggleMode()">Vista: {{ viewMode() }}</button>
-
-  @switch (viewMode()) {
-    @case ('lista') {
-      <ul>
-        @for (item of topics(); track item) {
-          <li>{{ item }}</li>
-        } @empty {
-          <p>No hay temas registrados.</p>
-        }
-      </ul>
-    }
-    @case ('resumen') {
-      <p>Total de temas: <strong>{{ topics().length }}</strong></p>
-    }
-  }
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center px-6 md:px-16 relative overflow-hidden bg-slate-100" id="hero">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1">
+            <h2 class="text-sm font-semibold text-rose-500 mb-4 tracking-[0.2em]">VERONICA COBOS</h2>
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+                Construyendo el <span class="text-rose-500">Futuro</span> de la Computación.
+            </h1>
+            <p class="text-xl text-slate-600 mb-10 max-w-xl">
+                Estudiante de Ingeniería en Computación
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a class="bg-rose-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-rose-600 hover:shadow-[0_0_15px_rgba(244,63,94,0.4)] transition-all duration-300" href="#projects">Ver Proyectos</a>
+                <a class="border border-slate-300 text-slate-700 px-8 py-4 rounded-lg font-semibold hover:border-rose-500 hover:text-rose-500 transition-all duration-300" href="#">Descargar CV</a>
+            </div>
+        </div>
+        <div class="order-1 md:order-2 flex justify-center items-center relative">
+            <div class="absolute w-[400px] h-[400px] bg-rose-300/30 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="relative w-80 h-80 md:w-[450px] md:h-[450px] rounded-2xl overflow-hidden bg-white shadow-xl p-2 border-2 border-rose-200">
+                <img class="w-full h-full object-cover rounded-xl transition-all duration-700"
+                     data-alt="Retrato profesional de Veronica Cobos, estudiante de ingeniería en computación, una joven de cabello rizado, en un entorno luminoso y moderno. Iluminación suave y profesional, estética limpia y femenina acorde a un portafolio en tema claro."
+                     src="REEMPLAZA_CON_LA_URL_DE_TU_FOTO"/>
+            </div>
+        </div>
+    </div>
 </section>
