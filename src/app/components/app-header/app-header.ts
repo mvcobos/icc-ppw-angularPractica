@@ -1,7 +1,9 @@
 import { UpperCasePipe } from '@angular/common';
 //import { computeMsgId } from '@angular/compiler';
-import { ChangeDetectionStrategy, Component,computed,signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { ChangeDetectionStrategy, Component,computed,inject,signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { AuthService } from '../../core/services/auth';
+
 
 @Component({
   selector: 'app-header',
@@ -15,6 +17,21 @@ export class AppHeader {
   readonly brand = signal("PPW Angular")
   readonly showInfo = signal(false);
 
+  
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  // El signal del servicio: null = no autenticado, User = autenticado.
+  currentUser = this.authService.currentUser;
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      // Redirige al login despues de cerrar sesion.
+      this.router.navigate(['/login']);
+    });
+  }
+
+  
   readonly toggleLabel = computed(
     () => 
     (this.showInfo() 

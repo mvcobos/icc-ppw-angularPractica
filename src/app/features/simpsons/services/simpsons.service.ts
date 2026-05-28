@@ -6,12 +6,13 @@ import {
   SimpsonsCharacter,
   SimpsonsResponse,
 } from '../models/simpsons.interface';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SimpsonsService {
   
   private http = inject(HttpClient); //injecta la dependencia de hhtpClient. fue creada en app.config
-  private readonly baseUrl = 'https://thesimpsonsapi.com/api';
+  private readonly baseUrl = environment.apiUrl; 
   // private readonly baseUrl = environment.apiUrl;
 
   getCharactersOptions(options: Options = {}): Observable<SimpsonsResponse> {
